@@ -1,0 +1,50 @@
+<div class="container">
+<div class="row align-items-start">
+<div class="col-4">
+<a href=" http://localhost/about-myself/appliance/refrigerator/">
+<img src="http://localhost/about-myself/wp-content/uploads/2021/05/vacuum-removebg-preview-1.png" />
+<p>Vacuum</p>
+</a></div>
+
+
+<div class="col-4">
+<a href="http://localhost/about-myself/appliance/toaster/">
+<img src="http://localhost/about-myself/wp-content/uploads/2021/05/appliance-removebg-preview.png" />
+<p>Toaster</p>
+</a></div>
+
+
+<div class="col-4">
+<a href=" http://localhost/about-myself/appliance/washing-machine/">
+<img src="http://localhost/about-myself/wp-content/uploads/2021/05/washing_machine-removebg-preview.png" />
+<p>Washing Machine</p>
+</a></div>
+
+
+<div class="col-4">
+<a href="http://localhost/about-myself/appliance/television/">
+<img src="http://localhost/about-myself/wp-content/uploads/2021/05/tv-removebg-preview.png" />
+<p>Smart TV</p>
+</a></div>
+
+
+
+<div class="col-4">
+<a href="http://localhost/about-myself/appliance/oven/">
+<img src="http://localhost/about-myself/wp-content/uploads/2021/05/oven-removebg-preview.png" />
+<p>Oven</p>
+</a></div>
+
+
+
+<div class="col-4">
+<a href=" http://localhost/about-myself/appliance/refrigerator-2/">
+<img src="http://localhost/about-myself/wp-content/uploads/2021/05/ref-removebg-preview.png" />
+Refrigerator
+</a></div>
+
+
+
+</div>
+</div>
+</div>

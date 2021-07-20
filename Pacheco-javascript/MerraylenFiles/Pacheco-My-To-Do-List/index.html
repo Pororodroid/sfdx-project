@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/fontawesome.min.css">
+    <style media="screen">
+        body {
+            height: 500px; 
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-image: url('https://i.pinimg.com/564x/b6/a5/1f/b6a51fe794930d14eb3df54e23713be9.jpg');
+
+          }
+       
+        .container{
+            color: #1a1c20;
+            margin: 40px auto;
+            background-color: rgba(250, 243, 243, 0.39);
+            border: 1px solid rgba(255,255,255,0.1);
+            width: 50%;
+            border-radius: 15px;
+            padding: 32px;
+            backdrop-filter: blur(10px);
+
+        }
+
+        form {
+            outline: 0;
+            height: 36px;
+            margin-top: 5%;
+            border: 1px solid #046582;
+        }
+
+        input[type="text"] {
+        outline: none;
+        width: 55%;
+        height: 32px;
+        border: none;
+        border-radius: 5px;
+        font-size: 12px;
+        font-weight: normal;
+        padding-left: 0 10px;
+        color: black;
+        }
+        .add {
+            outline: 0;
+            float: right;
+            width: 34%;
+            height: 36px;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+            background-color: #F0EBD8;
+        }
+        ul {
+            padding: 0;
+            text-align: left;
+            list-style: none;
+            }
+
+        hr {
+            border-bottom: 0;
+            margin: 15px 0;
+            }
+
+        input[type="checkbox"] { width: 30px; }
+
+        .remove {
+            float: right;
+            cursor: pointer;
+            }
+
+        .completed { text-decoration: line-through; }
+    </style>
+</head>
+<body>
+
+
+
+    <div class="container">
+            <!-- <input type="text" id="input" placeholder="press enter to add tasks"> -->
+            <ul id="list-items"></ul>
+            <form class="add-items">
+                <input type="text" class="form-control" id="todo-list-item" placeholder="Enter your to-do-list today?">
+                <button class="add" type="submit">Add to List</button>
+              </form>
+
+      </div>
+
+
+
+    <script src="//code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+    <script src="js/javascript.js"></script>
+</body>

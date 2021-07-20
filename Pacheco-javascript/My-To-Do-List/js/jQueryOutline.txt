@@ -1,0 +1,326 @@
+// JQuery
+
+So how to use jQuery?
+Add jQuery to the html
+
+
+Add jQuery to your html
+
+$ - dollar sign is the jQuery Object
+  - if you want to reference the jQuery you use the $
+
+
+$(document).ready( function() {
+}
+This is very useful to make sure your whole document loads
+
+
+//Selectors
+
+
+// normally when we grab element using javaScript
+// Execute in the Dev console
+document.getElementById("page-title");
+//jQuery
+$('#page-title');
+
+
+Select by Id, do then method
+$('#panel1').hide();
+$('#panel1').show(300);
+
+Chainable
+$('#panel1').hide(300).show(1000).hide(300).show(1000);
+
+//Slide
+$('#panel1').slideUp(1000);
+$('#panel1').slideUp(1000).slideDown(1000);
+$('#panel1').slideToggle(1000).slideToggle(1000);
+
+//delay
+$('#panel1').slideUp(1000).delay(1000).slideDown(1000);
+
+//Fade 
+$('#panel1').fadeOut(1000).fadeIn(1000);
+$('#panel1').fadeToggle(1000).fadeToggle(1000);
+
+//CSS
+$('#panel1').css({color: 'red'});
+$('#panel1').css({color: 'red', fontWeight: 'bold'});
+$('#panel1').css({
+    color: 'red', 
+    fontWeight: 'bold',
+    display: 'none'
+});
+
+$('#panel1').hide();
+$('#panel1').css({opacity: '0.5'})
+
+//html methods
+$('#button1').html('my button');
+
+$('#panel1').html('my panel<b>bold</b>');
+
+//Not
+$('div:not(#panel1)').fadeOut();
+
+
+// Event Binding
+now lets listen to what users are doing
+
+event name is 'click'
+anything in the curly braces will fire when click
+
+$('#button1').on('click', function(){
+    $('#panel1').slideToggle();
+})
+
+$('#panel1').on('click', function(){
+    $('#panel1').slideToggle();
+})
+
+//we can add an X button if we want to
+
+    $('#button1').on('click', function(){
+        $('#panel1').fadeToggle();
+    })
+
+    $('#button2').on('click', function(){
+        $('#panel2').fadeToggle();
+    })
+
+    $('#button3').on('click', function(){
+        $('#panel3').fadeToggle();
+    })
+
+    $('#button4').on('click', function(){
+        $('#panel4').fadeToggle();
+    })
+
+        $('#button1').on('mouseover', function(){
+            $('#panel1').fadeOut();
+        })
+
+        $('#button2').on('mouseover', function(){
+            $('#panel2').fadeOut();
+        })
+
+        $('#button3').on('mouseover', function(){
+            $('#panel3').fadeOut();
+        })
+
+        $('#button4').on('mouseover', function(){
+            $('#panel4').fadeOut();
+        })
+
+            $('#button1').on('click', function(){
+                $('#panel1').fadeIn();
+            })
+
+            $('#button2').on('click', function(){
+                $('#panel2').fadeIn();
+            })
+
+            $('#button3').on('click', function(){
+                $('#panel3').fadeIn();
+            })
+
+            $('#button4').on('click', function(){
+                $('#panel4').fadeIn();
+            })
+
+
+// we want to only run it once
+$('#button1').on('click', function(){
+    $('#panel1').fadeIn();
+    $('#button1').off('click');
+
+})
+
+
+//Changes Attribute
+$('#button1').on('click', function(){
+    $('#button1').attr('disabled', 'disabled');
+});
+
+
+// Adding Content
+let tweet = `<div style='margin: 20px 0; padding: 10px;
+background: #eee'> The big fight live: Ham vs Cheese!
+</div>
+`;
+
+
+//Append Content
+$('#button1').on('click', function(){
+    $('#panel').append(tweet);
+});
+
+
+//Find
+
+$('#button1').on('click', function(){
+    $('#panel1 .panel-body').html('my new panel content');
+})
+
+//Clean Up Code
+
+Before
+
+    $('#button1').on('click', function(){
+        $('#panel1').toggle();
+    })
+
+    $('#button2').on('click', function(){
+        $('#panel2').toggle();
+    })
+
+    $('#button3').on('click', function(){
+        $('#panel3').toggle();
+    })
+
+    $('#button4').on('click', function(){
+        $('#panel4').toggle();
+    })
+
+add attribute to button
+<button id="button1" data-panel="panel1">button 1</button>
+
+$('button[data-panel=panel1]);
+
+$('button[id=button1]);
+
+Good Rule of web developlment
+DRY - Do Not Repeat Yourself
+
+Before our button, this was not very DRY
+
+//Get rid of all button ID and then change it to class
+<button class="panel-button"></button>
+
+$('.panel-button').('click', function() {
+    $('#panel1').toggle();
+})
+
+// this is going to take what ever the action is on
+$('.panel-button').('click', function() {
+    let panelId = $(this).attr('data-panelid');
+    alert(panelId);
+
+    $('#'+panelId).toggle();
+})
+
+now we have much much cleaner thing
+
+let content = "my New Awesome Content";
+
+$('.panel-button').('click', function() {
+    let panelId = $(this).attr('data-panelid');
+    alert(panelId);
+
+    $('#'+panelId).toggle();
+    $('#'+panelId+' .panel-body').html(content)
+    $('#'+panelId+' .panel-body').html('')
+
+})
+
+
+DOM Traversal
+
+$('li');
+$('li').first();
+$('li').last();
+
+$('li').first().hide();
+
+$('li').eq(0);
+
+$('ul:first').children();
+$('li:first').siblings();
+$('li:first').parent();
+$('li').eq(4).parent();
+$('li').eq(4).parent().parent();
+$('li').eq(4).parent().parent().prev();
+$('li').eq(4).parent().parent().prev().prev();
+
+$('li:first').first().next();
+
+
+$('li').on('click', function() {
+    $(this).next().hide();
+})
+
+$('li').on('click', function() {
+    $(this).next().remove();
+})
+
+
+$('li').on('click', function() {
+    $(this).next().remove();
+})
+
+$('li').on('click', function() {
+    $(this).siblings().remove();
+})
+
+$('li').on('click', function() {
+    $(this).siblings().addClass('special');
+})
+
+$('li').on('click', function() {
+    $(this).().removeClass('special');
+})
+
+$('li').on('click', function() {
+    $(this).closest('list').addClass('special');
+})
+
+
+$('.list').on('click', function() {
+   $(this).find('.special').remove()
+})
+
+
+$('li').on('click', function() {
+
+    if( $(this).is('.special' ) ) {
+       alert('special');
+    }
+   
+})
+
+$('li').on('click', function() {
+
+    if( $(this).not('.special' ) ) {
+       alert('not special');
+    }
+   
+})
+
+
+// jquery passes an events object to callback func
+// we can use that event if we want to gather info
+// such us position, type of event, target
+
+$(document).on('ready', function(){
+
+    element.on('click', function(e){
+    })
+
+})
+
+// or LOL
+$(document).on('ready', function(){
+    element.on('click', function(sausage){
+    })
+})
+
+$('*').on('click', function(e){
+    console.log(e);
+    console.log('the event type is' + e.type);
+
+    console.log('the event type is' + e.target);
+    console.log('the event type is' + e.pageX);
+
+    e.stopPropagation(); // stop the event from bubbling up
+});

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/fontawesome.min.css">
+    <style media="screen">
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(45deg, #9ddfd3 50%, #ffa5a5 50%);
+          }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            letter-spacing: 1px;
+            font-family: Verdana;
+            text-transform:capitalize;
+
+        }
+        .container{
+            height: 450px;
+            width: 330px;
+            background: #aaaaaa;
+            border-radius: 5px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            overflow-y:auto;
+        }
+        #input{
+            height: 50px;
+            width: 100%;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            background: #fcd1d1;
+            color: black;
+            padding: 0 10px;
+            margin: 15px 0;
+        }
+        #input::placeholder{
+            color: #bbb;
+        }
+        ul li{
+            background: #eee;
+            color: black;
+            height: 40px;
+            border-radius: 50px;
+            margin: 10px 0;
+            padding: 10px;
+            position: relative;
+        }
+        ul .fa-check, .fa-trash{
+            position: absolute;
+            cursor: pointer;
+        }
+        ul .fa-check {
+            right: 40px;
+            color: #00587a;
+        }
+        ul .fa-trash {
+            right: 15px;
+            color: #213e3b;
+        }
+    </style>
+</head>
+<body>
+
+
+
+    <div class="container">
+            <input type="text" id="input" placeholder="Press enter to add tasks">
+            <ul></ul>
+      </div>
+
+
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/javascript.js"></script>
+</body>

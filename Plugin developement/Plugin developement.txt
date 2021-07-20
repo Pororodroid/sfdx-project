@@ -1,0 +1,119 @@
+1. Create new custom post type naming Laptop (laptop)
+	- should use register_post_type inside functions.php
+2. Create meta box for the Laptop post type
+	- add_meta_box
+	- should display a Meta box under the Laptop post type
+	- inside the Metabox should contain the following fields
+		- Processor
+		- Harddrive
+		- RAM
+		- Color
+3. Create a save_post hook for the Laptop post type (add condition to detect 
+	if the post_type of the post is 'laptop')
+	- inside the callback get the following fields mentioned above 
+	(e.g. use $_POST['processor'])
+	- store the fields on the meta data using add_post_meta (or update_post_meta)
+4. Create a single post type template for Laptop (single-laptop.php)
+	- in your template, use get_post_meta getting the mentioned fields above 
+	and display it on your template.
+	- use featured image to display it on your template, 
+	also title and some description for yor laptop
+	- +points for template creativity
+
+inside meta box callback
+	global $post; // to get the current post inside the metabox
+	// set your input field by getting each meta values
+	$processor = get_post_meta($post->ID, 'processor');
+	echo '<input name="laptop" value="' . $processor . '" />';
+sa register_post_type, in your array na $args, add 'supports'
+e.g.
+$args = array(
+	'label' => array(), 
+	'supports' => array('title', 'content', 'thumbnail')
+)
+register_post_type('laptop', $args)
+
+
+
+
+
+
+
+
+https://wppb.me/
+https://developer.wordpress.org/reference/functions/register_post_type/
+https://developer.wordpress.org/reference/functions/add_meta_box/
+include 'partials/webforce-connect-donation-form-settings.php';
+https://developer.wordpress.org/reference/hooks/save_post/
+
+https://developer.wordpress.org/reference/functions/get_post_type/
+https://gist.github.com/superbiche/fac2c9742b7c1e71a8b3
+if(!empty($post_id) && get_post_type($post_id) == 'laptop'){
+if (isset($post->post_status) && 'auto-draft' == $post->post_status) {
+	return;
+}
+
+// Autosave, do nothing
+if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+	return;
+}
+// AJAX? Not used here
+if (defined('DOING_AJAX') && DOING_AJAX) {
+	return;
+}
+
+// Return if it's a post revision
+if ( false !== wp_is_post_revision( $post_id ) ) {
+	return;
+}
+
+$_POST
+$color = isset($_POST['color']) ? $_POST['color'] : '' ;
+update_post_meta($post_id, 'color', $color);
+
+
+
+global $post;
+$post_id = isset($post->ID) ? $post->ID : '';
+$color = get_post_meta( $post_id, 'color', true );
+
+
+https://developer.wordpress.org/reference/functions/add_shortcode/
+add_shortcode( 'footag', 'wpdocs_footag_func' );
+function wpdocs_footag_func( $atts ) {
+    return "foo = {$atts['foo']}";
+}
+
+/**
+	 * The array of filters registered with WordPress.
+	 *
+	 * @since    1.0.0
+	 * @access   protected
+	 * @var      array    $shortcodes    The filters registered with WordPress to fire when the plugin loads.
+	 */
+	protected $shortcodes;
+
+
+
+
+	/**
+	 * Add a new shortcode to the collection to be registered with WordPress
+	 *
+	 * @since     1.0.0
+	 *
+	 * @param string $tag             The name of the new shortcode.
+	 * @param object $component       A reference to the instance of the object on which the shortcode is defined.
+	 * @param string $callback        The name of the function that defines the shortcode.
+	 * @param int    $priority        Optional. The priority at which the function should be fired. Default is 10.
+     * @param int    $accepted_args   Optional. The number of arguments that should be passed to the $callback. Default is 2
+	 */
+	
+	public function add_shortcode( $tag, $component, $callback, $priority = 10, $accepted_args = 2 ) {
+        $this->shortcodes = $this->add( $this->shortcodes, $tag, $component, $callback, $priority, $accepted_args );
+    }
+
+
+		foreach ( $this->shortcodes as $hook ) {
+            add_shortcode( $hook['hook'], array( $hook['component'], $hook['callback'] ) );
+        }
+
